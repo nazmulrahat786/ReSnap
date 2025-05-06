@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Background Remover  - ReSnapp</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+    
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+  <link rel="shortcut icon" href="img/a.jpg" type="image/x-icon">
+</head>
+<body class="bg-gray-100 flex flex-col justify-between items-center min-h-screen">
+<header>
+  <nav class="bg-gradient-to-r w-screen px-10 from-blue-500 to-blue-600 p-4 shadow-lg text-white">
+    <div class="max-w-screen-xl mx-auto flex justify-between items-center">
+      <!-- Logo Section -->
+      <div class="flex items-center space-x-3">
+        <img class="w-12 h-12 " src="/img/a.jpg" alt="Logo">
+        
+      </div>
+  
+  
+      
+        <div >
+          <a href="/index.html"><button   className="btn  bg-green-600 border text-3xl">Back</button></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+ <main>
+  <div class="bg-white p-6 rounded-xl shadow-md w-full max-w-md text-center">
+    
+    <h1 class="text-4xl font-extrabold">ReSnap</h1>
+    <h2 class="text-2xl font-bold mb-4 text-blue-500">Background Remover with Full Image Crop</h2>
+
+    <!-- Upload -->
+    <input type="file" id="fileInput" accept="image/*"
+           class="file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 
+                  file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700
+                  hover:file:bg-blue-100 mb-2" onchange="previewImage()" />
+
+    <!-- Image Wrapper for Cropper -->
+    <div id="imageWrapper" class="hidden mb-4">
+      <img id="preview" class="mx-auto rounded" />
+    </div>
+
+    <!-- BG Color Picker -->
+    <div class="mb-2">
+      <label class="block text-sm font-medium text-gray-600">Choose BG Color:</label>
+      <input type="color" id="bgColor" value="#ffffff" class="w-16 h-10 border rounded cursor-pointer"/>
+    </div>
+
+    <!-- Toggle Transparent or Color -->
+    <div class="mb-4">
+      <label class="inline-flex items-center">
+        <input type="checkbox" id="useTransparent" class="mr-2">
+        Transparent Background
+      </label>
+    </div>
+
+    <!-- Buttons -->
+    <div class="space-x-2">
+      <button onclick="removeBackground()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg">
+        Remove Background
+      </button>
+      <button onclick="resetAll()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded-lg">
+        Reset
+      </button>
+    </div>
+
+    <!-- Loader -->
+    <div id="loader" class="mt-6 hidden flex justify-center">
+      <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+
+    <!-- Result -->
+    <div id="imageContainer" class="mt-6 hidden">
+      <canvas id="resultCanvas" class="w-full rounded-lg shadow-md mb-4"></canvas>
+      <a id="downloadBtn" href="#" download="result.png"
+         class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg inline-block">
+        Download
+      </a>
+    </div>
+  </div>
+ </main>
+ <footer class="bg-gray-800 w-screen flex justify-center items-center mx-auto text-white py-6">
+  <div class="container mx-auto px-4 flex flex-col items-center ">
+    <div class="text-center flex flex-col justify-center items-center md:text-left mb-4 md:mb-0">
+      <p>&copy; 2025 ReSnap - Smart Background Remover. All Rights Reserved.</p>
+      <p class="text-sm text-gray-400">Developed by Nazmul Rahat</p>
+      
+    </div>
+    <div class="flex mb-6 flex-wrap justify-center md:justify-end space-x-4">
+      <a href="https://www.facebook.com/rahat78613" target="_blank" class="hover:underline text-blue-400">Facebook</a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nazmulrahat13@gmail.com" class="hover:underline text-blue-400">Email</a>
+     
+      <a href="https://www.instagram.com/nazmulrahat78613?igsh=MXRtcXh3ODdpM3pnNA==" target="_blank" class="hover:underline text-blue-400">Instagram</a>
+    </div>
+  </div>
+</footer>
+<script src="bgremove.js"></script>
+</body>
+</html>

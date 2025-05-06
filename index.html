@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ReSnap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <link rel="shortcut icon" href="img/a.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="css.css">
+</head>
+
+
+
+
+<script type="module">
+  import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCg87nQwei9xf4I4f5KqUXySiX8d1C-uag",
+    authDomain: "resnap-acad1.firebaseapp.com",
+    databaseURL: "https://resnap-acad1-default-rtdb.firebaseio.com",
+    projectId: "resnap-acad1",
+    storageBucket: "resnap-acad1.firebasestorage.app",
+    messagingSenderId: "19480085094",
+    appId: "1:19480085094:web:e4442022b2494b5027a3a7"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  const countRef = ref(db, 'visits/count');
+
+  // Increase count
+  runTransaction(countRef, (current) => {
+    return (current || 0) + 1;
+  });
+
+  // Animate counter on update
+  onValue(countRef, (snapshot) => {
+    const el = document.getElementById("visitCount");
+    const newCount = snapshot.val();
+    const oldCount = parseInt(el.textContent.replace(/,/g, '')) || 0;
+    animateCount(el, oldCount, newCount);
+  });
+
+  // Counter animation function with faster and smoother transition
+  function animateCount(element, start, end, duration = 500) {
+    let startTime = null;
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easedProgress = easeOut(progress);  // Apply ease-out function for smoothness
+      const current = Math.floor(easedProgress * (end - start) + start);
+      element.textContent = current.toLocaleString();
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    };
+    requestAnimationFrame(step);
+  }
+
+  // Ease-out function for smoothness
+  function easeOut(t) {
+    return t * (2 - t);  // Ease-out cubic function
+  }
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<body class="bg-gray-50 flex flex-col justify-between min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 shadow-lg text-white">
+    <div class="max-w-screen-xl mx-auto flex justify-between items-center">
+      <!-- Logo Section -->
+      <div class="flex items-center space-x-3">
+        <img class="w-12 h-12 " src="/img/a.jpg" alt="Logo">
+        <h1 class="text-2xl font-bold">ReSnap</h1>
+      </div>
+  
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6">
+        <a href="#features" class="hover:text-gray-100">Features</a>
+        <a href="#about" class="hover:text-gray-100">About</a>
+        <a href="#contact" class="hover:text-gray-100">Contact</a>
+      </div>
+  
+      <!-- Mobile Menu Toggle Button -->
+      <div class="md:hidden" x-data="{ open: false }">
+        <button @click="open = !open" class="focus:outline-none">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+            <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+  
+        <!-- Mobile Dropdown Menu -->
+        <div x-show="open" @click.away="open = false" class="absolute right-4 top-16 bg-blue-500 rounded-md shadow-lg py-2 w-40 flex flex-col space-y-2 text-center z-50">
+          <a href="#features" class="hover:bg-blue-600 py-2">Features</a>
+          <a href="#about" class="hover:bg-blue-600 py-2">About</a>
+          <a href="#contact" class="hover:bg-blue-600 py-2">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col lg:flex-row justify-center lg:justify-center lg:mx-auto items-center bg-gradient-to-r from-blue-500 to-teal-500 text-white py-16 mt-16 px-4" data-aos="fade-up">
+    <div class="lg:w-1/2 text-center lg:text-left px-4 mb-8 lg:mb-0">
+     <!-- live count -->
+     <div class="flex justify-center mt-10">
+      <div class="bg-white shadow-lg rounded-xl px-2 py-2 flex items-center space-x-4 border border-blue-100">
+
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="animated-eye" viewBox="0 0 24 24" stroke="currentColor">
+          <!-- Iris -->
+          <circle cx="12" cy="12" r="3" fill="#2563eb" stroke="none" />
+          
+          <!-- Eye outline -->
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.458 12C3.732 7.943 7.523 5 12 5
+               c4.477 0 8.268 2.943 9.542 7
+               -1.274 4.057-5.065 7-9.542 7
+               -4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+
+
+
+
+
+
+        <div class="flex gap-5 justify-center items-center">
+          <p class="text-lg font-semibold text-gray-700">Total Visits</p>
+          <p class="text-2xl font-bold text-blue-600"><span id="visitCount">0</span></p>
+        </div>
+      </div>
+    </div>
+    <br>
+    
+    
+      <!--  -->
+
+      <h2 class="text-4xl font-extrabold mb-4 leading-tight">Remove Image Background Instantly</h2>
+      <p class="text-lg mb-6">Effortlessly crop and remove backgrounds from your images with our smart tool, in just a few clicks!</p>
+      <div class="space-x-4 flex justify-center lg:justify-start">
+        <a href="/resize.html" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">Get Started</a>
+        <a href="bgremove.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">Remove Background</a>
+        <a href="resize.html" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">Resize Image</a>
+      </div>
+    </div>
+    <div class="lg:w-1/2 mt-8 lg:mt-0" data-aos="fade-left">
+      <img  src="/img/a.jpg" alt="Background Remover" class="w-32 lg:w-72 rounded-lg ">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-white text-gray-800">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold">Our Features</h2>
+      <p class="text-xl text-gray-600">Powerful tools that make image editing easier and faster.</p>
+    </div>
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-4">
+      <div class="text-center p-6 bg-gray-100 rounded-lg shadow-lg hover:shadow-2xl transition-all" data-aos="fade-up">
+        <h3 class="text-xl font-semibold mb-4">Crop Your Images</h3>
+        <p class="text-gray-600">Resize and adjust images to fit your needs with a user-friendly cropper tool.</p>
+      </div>
+      <div class="text-center p-6 bg-gray-100 rounded-lg shadow-lg hover:shadow-2xl transition-all" data-aos="fade-up">
+        <h3 class="text-xl font-semibold mb-4">Remove Background</h3>
+        <p class="text-gray-600">Effortlessly remove backgrounds from any image with just one click!</p>
+      </div>
+      <div class="text-center p-6 bg-gray-100 rounded-lg shadow-lg hover:shadow-2xl transition-all" data-aos="fade-up">
+        <h3 class="text-xl font-semibold mb-4">Download the Result</h3>
+        <p class="text-gray-600">Once the background is removed, download your image in seconds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-100 text-gray-800">
+    <div class="max-w-screen-xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-bold mb-4">About Us</h2>
+      <p class="text-lg mb-4">Our mission is to provide a fast, reliable, and easy-to-use online tool for removing backgrounds and editing images. Whether you're a professional or a beginner, our tools are designed for everyone.</p>
+      <br><br>
+      
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-blue-600 text-white">
+    <div class="max-w-screen-xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+      <p class="text-lg mb-6">Have any questions or need support? We're here to help!</p>
+      <a href="/contact.html" class="bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 px-6 rounded-lg inline-block">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 w-screen flex justify-center items-center mx-auto text-white py-6">
+    <div class="container mx-auto px-4 flex flex-col items-center ">
+      <div class="text-center flex flex-col justify-center items-center md:text-left mb-4 md:mb-0">
+        <p>&copy; 2025 ReSnap - Smart Background Remover. All Rights Reserved.</p>
+        <p class="text-sm text-gray-400">Developed by Nazmul Rahat</p>
+        
+      </div>
+      <div class="flex mb-6 flex-wrap justify-center md:justify-end space-x-4">
+        <a href="https://www.facebook.com/rahat78613" target="_blank" class="hover:underline text-blue-400">Facebook</a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nazmulrahat13@gmail.com" class="hover:underline text-blue-400">Email</a>
+       
+        <a href="https://www.instagram.com/nazmulrahat78613?igsh=MXRtcXh3ODdpM3pnNA==" target="_blank" class="hover:underline text-blue-400">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init();
+  </script>
+  <script src="js.js"></script>
+
+</body>
+</html>
