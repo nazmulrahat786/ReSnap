@@ -6,10 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ReSnap</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <link rel="shortcut icon" href="img/a.jpg" type="image/x-icon">
-  <link rel="stylesheet" href="css.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5280794535195603"
+     crossorigin="anonymous"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  .animated-eye {
+    width: 40px;
+    height: 40px;
+    stroke: #2563eb; /* Tailwind's text-blue-600 */
+    fill: none;
+    stroke-width: 2;
+    transform-origin: center;
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 97%, 100% {
+      transform: scaleY(1);
+    }
+    98%, 99% {
+      transform: scaleY(0.1);
+    }
+  }
+  #aa{
+    background: linear-gradient(to right, #3b82f6, #10b981);
+  }
+ 
+</style>
+  
 </head>
 
 
@@ -70,95 +106,95 @@
 </script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <body class="bg-gray-50 flex flex-col justify-between min-h-screen">
 
   <!-- Navbar -->
-  <nav class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 shadow-lg text-white">
-    <div class="max-w-screen-xl mx-auto flex justify-between items-center">
+  <nav class="navbar bg-blue-600 text-white shadow-lg px-4">
+    <div class="container flex justify-center items-center mx-auto max-w-screen-xl">
+  
       <!-- Logo Section -->
-      <div class="flex items-center space-x-3">
-        <img class="w-12 h-12 " src="/img/a.jpg" alt="Logo">
-        <h1 class="text-2xl font-bold">ReSnap</h1>
+      <div class="flex-1">
+        <a class="flex items-center gap-3" href="#">
+          <img class="w-12 h-12 rounded" src="/img/a.jpg" alt="Logo">
+          <span class="text-2xl font-bold">ReSnap</span>
+        </a>
       </div>
   
       <!-- Desktop Menu -->
-      <div class="hidden md:flex space-x-6">
+      <div class="hidden md:flex-none md:flex gap-6">
         <a href="#features" class="hover:text-gray-100">Features</a>
         <a href="#about" class="hover:text-gray-100">About</a>
         <a href="#contact" class="hover:text-gray-100">Contact</a>
       </div>
+   <!-- Mobile Dropdown -->
+   <div class="dropdown dropdown-end md:hidden">
+    <button tabindex="0" class="btn btn-ghost text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[50] p-2 shadow bg-blue-500 rounded-box w-44 text-center">
+      <li><a href="#features" class="hover:bg-blue-600">Features</a></li>
+      <li><a href="#about" class="hover:bg-blue-600">About</a></li>
+      <li><a href="#contact" class="hover:bg-blue-600">Contact</a></li>
+    </ul>
+  </div>
+     
   
-      <!-- Mobile Menu Toggle Button -->
-      <div class="md:hidden" x-data="{ open: false }">
-        <button @click="open = !open" class="focus:outline-none">
-          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"/>
-            <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-  
-        <!-- Mobile Dropdown Menu -->
-        <div x-show="open" @click.away="open = false" class="absolute right-4 top-16 bg-blue-500 rounded-md shadow-lg py-2 w-40 flex flex-col space-y-2 text-center z-50">
-          <a href="#features" class="hover:bg-blue-600 py-2">Features</a>
-          <a href="#about" class="hover:bg-blue-600 py-2">About</a>
-          <a href="#contact" class="hover:bg-blue-600 py-2">Contact</a>
-        </div>
-      </div>
     </div>
+
   </nav>
-
   <!-- Hero Section -->
-  <section class="flex flex-col lg:flex-row justify-center lg:justify-center lg:mx-auto items-center bg-gradient-to-r from-blue-500 to-teal-500 text-white py-16 mt-16 px-4" data-aos="fade-up">
-    <div class="lg:w-1/2 text-center lg:text-left px-4 mb-8 lg:mb-0">
-     <!-- live count -->
-     <div class="flex justify-center mt-10">
-      <div class="bg-white shadow-lg rounded-xl px-2 py-2 flex items-center space-x-4 border border-blue-100">
-
-
-
-        <svg xmlns="http://www.w3.org/2000/svg" class="animated-eye" viewBox="0 0 24 24" stroke="currentColor">
-          <!-- Iris -->
-          <circle cx="12" cy="12" r="3" fill="#2563eb" stroke="none" />
-          
-          <!-- Eye outline -->
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M2.458 12C3.732 7.943 7.523 5 12 5
-               c4.477 0 8.268 2.943 9.542 7
-               -1.274 4.057-5.065 7-9.542 7
-               -4.477 0-8.268-2.943-9.542-7z" />
-        </svg>
-
-
-
-
-
-
-        <div class="flex gap-5 justify-center items-center">
-          <p class="text-lg font-semibold text-gray-700">Total Visits</p>
-          <p class="text-2xl font-bold text-blue-600"><span id="visitCount">0</span></p>
+  <section
+  id="aa"
+   class="flex  flex-col lg:flex-row justify-center lg:justify-center lg:mx-auto items-center text-white py-10  px-4 min-h-fit" data-aos="fade-up";
+   
+   >
+    <div class="lg:w-1/2 text-center flex flex-col justify-center items-center  lg:text-left px-4 mb-8 lg:mb-0">
+      <!-- live count -->
+      <div class="flex justify-center mt-10">
+        <div class="bg-white shadow-lg rounded-xl px-6 py-2 flex items-center space-x-4 border border-blue-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="animated-eye" viewBox="0 0 24 24" stroke="currentColor">
+            <!-- Iris -->
+            <circle cx="12" cy="12" r="3" fill="#2563eb" stroke="none" />
+            <!-- Eye outline -->
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.458 12C3.732 7.943 7.523 5 12 5
+                 c4.477 0 8.268 2.943 9.542 7
+                 -1.274 4.057-5.065 7-9.542 7
+                 -4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+          <div class="flex gap-5 justify-center items-center">
+            <p class="text-lg font-semibold text-gray-700">Total Visits</p>
+            <p class="text-2xl font-bold text-blue-600"><span id="visitCount">0</span></p>
+          </div>
         </div>
       </div>
-    </div>
-    <br>
-    
-    
-      <!--  -->
-
+      <br>
+      <!-- Headline & CTA -->
       <h2 class="text-4xl font-extrabold mb-4 leading-tight">Remove Image Background Instantly</h2>
       <p class="text-lg mb-6">Effortlessly crop and remove backgrounds from your images with our smart tool, in just a few clicks!</p>
+      
       <div class="space-x-4 flex justify-center lg:justify-start">
-        <a href="/resize.html" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">Get Started</a>
-        <a href="bgremove.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">Remove Background</a>
-        <a href="resize.html" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">Resize Image</a>
-      </div>
+        <a href="blog.html" class="bg-green-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center">Blogs</a>
+        <a href="bgremove.html" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center">Remove Background</a>
+        <a href="resize.html" class="bg-yellow-500 hover:bg-yellow-700 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center">Resize Image</a>
     </div>
+    
+      
+      
+    </div>
+    
     <div class="lg:w-1/2 mt-8 lg:mt-0" data-aos="fade-left">
-      <img  src="/img/a.jpg" alt="Background Remover" class="w-32 lg:w-72 rounded-lg ">
+      <img src="/img/a.jpg" alt="Logo" class="w-32 lg:w-72 rounded-lg">
     </div>
   </section>
+
+
+
 
   <!-- Features Section -->
   <section id="features" class="py-20 bg-white text-gray-800">
@@ -182,6 +218,17 @@
     </div>
   </section>
 
+
+   
+<ins class="adsbygoogle"
+style="display:block; text-align:center;"
+data-ad-client="ca-pub-5280794535195603"
+data-ad-slot="1234567890"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   <!-- About Section -->
   <section id="about" class="py-20 bg-gray-100 text-gray-800">
     <div class="max-w-screen-xl mx-auto text-center px-4">
@@ -197,26 +244,44 @@
     <div class="max-w-screen-xl mx-auto text-center px-4">
       <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
       <p class="text-lg mb-6">Have any questions or need support? We're here to help!</p>
-      <a href="/contact.html" class="bg-teal-700 hover:bg-teal-800 text-white font-semibold py-3 px-6 rounded-lg inline-block">Contact Us</a>
+      <a href="/contact.html" class="bg-green-600 hover:bg-teal-800 text-white font-semibold py-3 px-6 rounded-lg inline-block">Contact Us</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 w-screen flex justify-center items-center mx-auto text-white py-6">
-    <div class="container mx-auto px-4 flex flex-col items-center ">
-      <div class="text-center flex flex-col justify-center items-center md:text-left mb-4 md:mb-0">
-        <p>&copy; 2025 ReSnap - Smart Background Remover. All Rights Reserved.</p>
-        <p class="text-sm text-gray-400">Developed by Nazmul Rahat</p>
+  <footer class="bg-gray-800 w-full flex justify-center items-center mx-auto text-white py-6">
+    <div class="container mx-auto px-4 flex flex-col items-center">
+      <!-- Footer Main Content -->
+      <div class="text-center flex flex-col justify-center items-center md:text-left mb-6 md:mb-0">
+        <p class="text-lg">&copy; 2025 ReSnap - Smart Background Remover. All Rights Reserved.</p>
+        <p class="text-sm text-gray-400 mb-4">Developed by Nazmul Rahat</p>
         
+        <!-- Social Media Links with Icons -->
+        <div class="flex gap-6 justify-center md:justify-start mb-4">
+          <a href="https://www.facebook.com/rahat78613" target="_blank" class="hover:text-blue-500 hover:scale-110 transition-transform">
+            <i class="fab fa-facebook-f text-xl"></i>
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nazmulrahat13@gmail.com" class="hover:text-blue-500 hover:scale-110 transition-transform">
+            <i class="fab fa-google text-xl"></i>
+          </a>
+          <a href="https://www.instagram.com/nazmulrahat78613?igsh=MXRtcXh3ODdpM3pnNA==" target="_blank" class="hover:text-blue-500 hover:scale-110 transition-transform">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+        </div>
       </div>
-      <div class="flex mb-6 flex-wrap justify-center md:justify-end space-x-4">
-        <a href="https://www.facebook.com/rahat78613" target="_blank" class="hover:underline text-blue-400">Facebook</a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nazmulrahat13@gmail.com" class="hover:underline text-blue-400">Email</a>
-       
-        <a href="https://www.instagram.com/nazmulrahat78613?igsh=MXRtcXh3ODdpM3pnNA==" target="_blank" class="hover:underline text-blue-400">Instagram</a>
+  
+      <!-- Footer Links -->
+      <div class="flex flex-wrap mb-4
+      m-0.5 justify-center md:justify-end space-x-6 text-sm">
+        <a href="about.html" class="hover:text-blue-500 hover:underline transition-colors">About Us</a>
+        <a href="contact.html" class="hover:text-blue-500 hover:underline transition-colors">Contact Us</a>
+        <a href="privacy-policy.html" class="hover:text-blue-500 hover:underline transition-colors">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-blue-500 hover:underline transition-colors">Terms</a>
+    
       </div>
     </div>
   </footer>
+  
 
   <script>
     AOS.init();

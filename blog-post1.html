@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admission Photo Tips - ReSnap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function toggleUniversities() {
+      const hiddenUniversities = document.querySelectorAll('.hidden-university');
+      const button = document.getElementById('toggle-button');
+      
+      // Toggle visibility of hidden universities
+      hiddenUniversities.forEach(uni => {
+        uni.classList.toggle('hidden');
+      });
+
+      // Change button text based on visibility
+      if (button.innerText === 'Show More') {
+        button.innerText = 'Show Less';
+      } else {
+        button.innerText = 'Show More';
+      }
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-tr from-white to-blue-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+  <!-- Article Container -->
+  <main class="flex-grow max-w-2xl mx-auto px-6 py-12 bg-white shadow-xl rounded-2xl mt-10">
+    <h1 class="text-xl font-extrabold text-center text-green-600 mb-8">ReSnap</h1>
+    <h1 class="text-3xl sm:text-4xl font-bold text-blue-700 mb-6 leading-snug">
+      📸 How to Prepare Admission Photos for All Universities in Bangladesh
+    </h1>
+
+    <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">
+      Admission photo requirements vary slightly between universities, but most require 
+      <span class="font-semibold text-blue-600">300x300px photos under 100KB</span>. 
+      With <span class="font-semibold text-blue-700">ReSnap</span>, just upload your photo, crop, and download — 
+      <em>no Photoshop needed!</em>
+    </p>
+
+    <div class="bg-blue-100 text-blue-900 p-4 rounded-xl mb-6 text-base sm:text-lg leading-relaxed shadow-inner">
+      💡 <strong>Quick Tip:</strong> Use a plain background, ensure your face is well-lit and fully visible, and use a recent photo (within the last 6 months).
+    </div>
+
+    <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">
+      A proper photo helps your application get accepted smoothly. Always check the official guidelines of the university you're applying to. Below are common requirements for major universities:
+    </p>
+
+    <ul class="list-disc list-inside text-base sm:text-lg text-gray-800 mb-6 space-y-2">
+        <li><strong>Dhaka University:</strong> 300x300px, JPG, under 100KB</li>
+        <li><strong>Rajshahi University:</strong> 300x300px, under 100KB, JPG only</li>
+        <li><strong>Bangladesh Agricultural University:</strong> 300x300px, JPG</li>
+        <li><strong>BUET:</strong> 300x300px, recent passport-size photo, white background</li>
+        <li><strong>Chittagong University:</strong> 300x300px, formal photo, recent</li>
+        <li><strong>Jahangirnagar University:</strong> JPG format, face must be clearly visible</li>
+        <li><strong>Islamic University, Bangladesh:</strong> 300x300px, JPG</li>
+        <li><strong>Shahjalal University of Science & Technology:</strong> 300x300px, JPG</li>
+        <li><strong>Khulna University:</strong> 300x300px, JPG</li>
+        <li><strong>National University:</strong> 120x150px, under 50KB</li>
+        <li><strong>Bangladesh Open University:</strong> 300x300px, JPG</li>
+        <li><strong>Bangabandhu Sheikh Mujib Medical University:</strong> Passport-size, clear face, no headgear unless religious</li>
+        <li><strong>Gazipur Agricultural University (BSMRAU):</strong> 300x300px, JPG</li>
+        
+        <!-- Hidden Universities -->
+        <li class="hidden-university hidden"><strong>Hajee Mohammad Danesh Science & Technology University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Mawlana Bhashani Science & Technology University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Patuakhali Science And Technology University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Sher-e-Bangla Agricultural University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Chittagong University of Engineering & Technology (CUET):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Rajshahi University of Engineering & Technology (RUET):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Khulna University of Engineering & Technology (KUET):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Dhaka University of Engineering & Technology (DUET):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Noakhali Science & Technology University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Jagannath University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Comilla University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Jatiya Kabi Kazi Nazrul Islam University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Chittagong Veterinary and Animal Sciences University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Sylhet Agricultural University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Jessore University of Science & Technology:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Pabna University of Science and Technology:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Begum Rokeya University, Rangpur:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Bangladesh University of Professionals (BUP):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Gopalganj Science & Technology University (BSMRSTU):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Bangladesh University of Textiles (BUTEX):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>University of Barishal:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Rangamati Science and Technology University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Bangladesh Maritime University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Islamic Arabic University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Chittagong Medical University:</strong> Passport-size, clear face</li>
+        <li class="hidden-university hidden"><strong>Rajshahi Medical University:</strong> Passport-size, clear face</li>
+        <li class="hidden-university hidden"><strong>Rabindra University, Bangladesh:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Gazipur Digital University (BDU):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Netrokona University (SHU):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Khulna Agricultural University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Jamalpur Science and Technology University (BSFMSTU):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Bangamata Sheikh Fazilatunessa Mujib Medical University:</strong> Passport-size, clear face</li>
+        <li class="hidden-university hidden"><strong>Aviation And Aerospace University, Bangladesh (BSMRAAU):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Chandpur Science and Technology University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Kishoreganj University (BSMRU):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Hobiganj Agricultural University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Sheikh Hasina Medical University, Khulna:</strong> Passport-size, clear face</li>
+        <li class="hidden-university hidden"><strong>Kurigram Agricultural University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Sunamganj Science and Technology University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Pirojpur Science & Technology University (BSMRSTUP):</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Naogaon University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Meherpur University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Narayanganj Science and Technology University:</strong> 300x300px, JPG</li>
+        <li class="hidden-university hidden"><strong>Shariatpur Agricultural University:</strong> 300x300px, JPG</li>
+    </ul>
+
+ <div class="flex mx-auto justify-center">
+  <button id="toggle-button" onclick="toggleUniversities()" class="bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg font-medium px-6 py-3 rounded-full shadow-lg transition duration-300">
+    Show More
+  </button>
+ </div>
+
+    <p class="text-base sm:text-lg text-gray-700 leading-relaxed mt-6">
+      These requirements can change. Make sure to check the university's official website or admission circular for the most accurate info. ReSnap helps you meet all major photo requirements easily!
+    </p>
+  </main>
+
+  <!-- Back Button -->
+  <footer class="py-10">
+    <div class="flex justify-center">
+      <button onclick="history.back()" class="bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg font-medium px-6 py-3 rounded-full shadow-lg transition duration-300">
+        ⬅ Back to Blog
+      </button>
+    </div>
+  </footer>
+
+</body>
+</html>

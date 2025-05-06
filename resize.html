@@ -24,22 +24,24 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
   <link rel="stylesheet" href="css.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body class="bg-gray-100 flex flex-col justify-between items-center min-h-screen">
   <header>
-    <nav class="bg-gradient-to-r w-screen from-blue-500 to-blue-600 p-4 shadow-lg text-white px-10">
+    <nav class="bg-blue-200 w-screen px-10 from-blue-500 to-blue-600 p-4 shadow-lg text-white">
       <div class="max-w-screen-xl mx-auto flex justify-between items-center">
         <!-- Logo Section -->
         <div class="flex items-center space-x-3">
           <img class="w-12 h-12 " src="/img/a.jpg" alt="Logo">
-         
+          
         </div>
     
     
         
           <div >
-            <a href="/index.html"><button  className="btn  bg-green-600 border text-3xl">Back</button></a>
+            <a href="/index.html"><button class="btn hover:bg-green-500 border-0  text-white font-bold  bg-blue-600 ">Back</button></a>
           </div>
         </div>
       </div>
@@ -148,18 +150,35 @@
     </div>
   </div>
 </main>
-<footer class="bg-gray-800 w-screen flex justify-center items-center mx-auto text-white py-6">
-  <div class="container mx-auto px-4 flex flex-col items-center ">
-    <div class="text-center flex flex-col justify-center items-center md:text-left mb-4 md:mb-0">
-      <p>&copy; 2025 ReSnap - Smart Background Remover. All Rights Reserved.</p>
-      <p class="text-sm text-gray-400">Developed by Nazmul Rahat</p>
+<footer class="bg-gray-800 w-full flex justify-center items-center mx-auto text-white py-6">
+  <div class="container mx-auto px-4 flex flex-col items-center">
+    <!-- Footer Main Content -->
+    <div class="text-center flex flex-col justify-center items-center md:text-left mb-6 md:mb-0">
+      <p class="text-lg">&copy; 2025 ReSnap - Smart Background Remover. All Rights Reserved.</p>
+      <p class="text-sm text-gray-400 mb-4">Developed by Nazmul Rahat</p>
       
+      <!-- Social Media Links with Icons -->
+      <div class="flex gap-6 justify-center md:justify-start mb-4">
+        <a href="https://www.facebook.com/rahat78613" target="_blank" class="hover:text-blue-500 hover:scale-110 transition-transform">
+          <i class="fab fa-facebook-f text-xl"></i>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nazmulrahat13@gmail.com" class="hover:text-blue-500 hover:scale-110 transition-transform">
+          <i class="fab fa-google text-xl"></i>
+        </a>
+        <a href="https://www.instagram.com/nazmulrahat78613?igsh=MXRtcXh3ODdpM3pnNA==" target="_blank" class="hover:text-blue-500 hover:scale-110 transition-transform">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+      </div>
     </div>
-    <div class="flex mb-6 flex-wrap justify-center md:justify-end space-x-4">
-      <a href="https://www.facebook.com/rahat78613" target="_blank" class="hover:underline text-blue-400">Facebook</a>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nazmulrahat13@gmail.com" class="hover:underline text-blue-400">Email</a>
-     
-      <a href="https://www.instagram.com/nazmulrahat78613?igsh=MXRtcXh3ODdpM3pnNA==" target="_blank" class="hover:underline text-blue-400">Instagram</a>
+
+    <!-- Footer Links -->
+    <div class="flex flex-wrap mb-4
+    m-0.5 justify-center md:justify-end space-x-6 text-sm">
+      <a href="about.html" class="hover:text-blue-500 hover:underline transition-colors">About Us</a>
+      <a href="contact.html" class="hover:text-blue-500 hover:underline transition-colors">Contact Us</a>
+      <a href="privacy-policy.html" class="hover:text-blue-500 hover:underline transition-colors">Privacy Policy</a>
+      <a href="terms.html" class="hover:text-blue-500 hover:underline transition-colors">Terms</a>
+      <a href="blog.html" class="hover:text-blue-500 hover:underline transition-colors">Blog</a>
     </div>
   </div>
 </footer>
